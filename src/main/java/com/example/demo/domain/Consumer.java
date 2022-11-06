@@ -1,29 +1,40 @@
 package com.example.demo.domain;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Consumer {
-    private String id;
-    private String ip;
+    private Long id;
+    private String gender;
+    private String age;
 
-    public Consumer(){}
-
-    public Consumer(String id, String ip) {
+    public Consumer(Long id, String gender, String age) {
         this.id = id;
-        this.ip = ip;
+        this.gender = gender;
+        this.age = age;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getIp() {
-        return ip;
+    public String getGender() {
+        return gender;
     }
 
-    public void setIp(String ip) {
-        this.ip = ip;
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 }

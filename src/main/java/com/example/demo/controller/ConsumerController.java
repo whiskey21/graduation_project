@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.consumer.MessageListener;
+import com.example.demo.consumer.ConsumerRepositoryImpl;
 import com.example.demo.domain.Consumer;
-import com.example.demo.domain.Subscription;
+import com.example.demo.dto.ConsumerDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,16 +18,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class ConsumerController {
 
     @Autowired
-    private MessageListener messageListener;
+    ConsumerRepositoryImpl consumerRepositoryimpl;
 
     @PostMapping(value = "/register", consumes = "application/json", produces = "application/json")
-    public void register(@RequestBody Consumer consumer, Subscription subscription) {
-        log.info("Consumer INFO"+consumer.getId() + " Subscription INFO" + subscription.toString());
+    public void register(@RequestBody ConsumerDto consumerDto) {
+        log.info("Consumer INFO" + consumerDto.getId());
+        Consumer consumer1 = new Consumer();
+        consumer1.setId(consumerDto.getId());
+        consumer1.setGender(consumerDto.getGender());
+        consumer1.setAge(consumerDto.getAge());
 
-        // register 요청시 Listen 하는 로직 들어와야함. 현재는 바로 컴포넌트에서 listen
-
+        consumerRepositoryimpl.putConsumerInfo(consumer1);
 
     }
+
 
 
 //    @Autowired

@@ -1,21 +1,16 @@
-package com.example.demo.domain;
+package com.example.demo.dto;
 
-public class Subscription {
-    private String id;
+public class ConsumerDto {
+
+    private Long id;
     private String gender;
     private String age;
 
-    public Subscription(String id, String gender, String age) {
-        this.id = id;
-        this.gender = gender;
-        this.age = age;
-    }
-
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
