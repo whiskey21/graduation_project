@@ -22,7 +22,7 @@ public class ConsumerController {
 
     @PostMapping(value = "/register", consumes = "application/json", produces = "application/json")
     public void register(@RequestBody ConsumerDto consumerDto) {
-        log.info("Consumer INFO" + consumerDto.getId());
+        log.info("Consumer INFO " + consumerDto.getId() + " " + consumerDto.getAge());
         Consumer consumer1 = new Consumer();
         consumer1.setId(consumerDto.getId());
         consumer1.setGender(consumerDto.getGender());
